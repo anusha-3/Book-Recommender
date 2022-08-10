@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- <meta charset="UTF-8"> -->
+    <title>Book Recommender System</title>
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+    <style>
+        * {
+            left: 0;
+        }
+
+        .navbar {
+            display: inline;
+            background-color: aqua;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            margin-top: 0;
+            height: auto;
+        }
+
+        .navbar a {
+            font-size: 2vw;
+            margin: 0;
+            /* margin-left: 5%; */
+
+        }
+
+        ul {
+            display: inline;
+            /* align-items: center; */
+            /*     justify-content: center; */
+            overflow: hidden;
+            /* float: right; */
+            /* color: white; */
+            /* width: 100%; */
+        }
+
+        ul li {
+            display: inline;
+            /* margin-left: 2rem; */
+            margin-right: 2rem;
+            color: darkblue;
+            float: right;
+        }
+
+        ul li a {
+            display: flex;
+            color: black;
+            text-align: right;
+            /* padding: 14px 16px; */
+            text-decoration: none;
+            /* float: right; */
+        }
+
+        .card {
+            width: 80%;
+            height: 100%;
+        }
+
+        .Book {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 15%;
+            background-color: #51add2;
+            color: white;
+            font-size: large;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="background-color: black">
+    <nav>
+        <div class="navbar">
+            <div style="padding-top: 15px; padding-left:30px; padding-bottom: 15px;"><a>Book Recommender</a>
+
+
+
+                <ul>
+
+                    <li><a href="/recommend">Recommend</a></li>
+                    <li class="active"><a href="/">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: white; padding-top: 50px;padding-bottom: 5px; text-align: center;"><u>Recommended
+                        Books</u></h1>
+                <form style="text-align: center;" action="/recommend_books" method="post">
+                    <input type="text" name="Book_Name" class="Book" placeholder="Enter Book Name"><br>
+                    <input type="submit">
+                </form>
+            </div>
+            {% if data %}
+            {% for i in data %}
+            <div class="col-md-2" style="display: inline-block; width:25%;height: 40%; margin-left: 7%;">
+                <div class="card">
+                    <div class="card-body" style="background: black;">
+                        <img class="card-img-top" style="width: 120px; height: 170px; position: center"
+                            src="{{i[2]}}">
+                        <h2 style="color: white; font-size: 20px">{{i[0]}}</h2>
+                        <h4 style="color: white; font-size: 10px">{{i[1]}}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+* {
+    left: 0;
+}
+
+.navbar {
+    display: inline;
+    background-color: aqua;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-top: 0;
+    height: auto;
+}
+
+.navbar a {
+    font-size: 2vw;
+    margin: 0;
+    /* margin-left: 5%; */
+
+}
+
+ul {
+    display: inline;
+    /* align-items: center; */
+    /*     justify-content: center; */
+    overflow: hidden;
+    /* float: right; */
+    /* color: white; */
+    /* width: 100%; */
+}
+
+ul li {
+    display: inline;
+    /* margin-left: 2rem; */
+    margin-right: 2rem;
+    color: darkblue;
+    float: right;
+}
+
+ul li a {
+    display: flex;
+    color: blue;
+    text-align: right;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    /* float: right; */
+}
+
+.card {
+    width: 80%;
+    height: 100%;
+}
