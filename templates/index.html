@@ -13,7 +13,11 @@
 
 .navbar {
     display: inline;
-    background-color: aqua;
+    /* background-color: aqua; */
+    /* background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_ljE0KwRlQnuYG255CHQdSLRfzkH639YLyA&usqp=CAU); */
+    /* opacity: 0.3; */
+    background: rgb(45, 42, 55);
+    box-shadow: 0 4px 6px 0 rgba(1, 1, 1, 0.521);
     position: fixed;
     width: 100%;
     top: 0;
@@ -25,6 +29,7 @@
     font-size: 2vw;
     margin: 0;
     /* margin-left: 5%; */
+    color: antiquewhite;
 
 }
 
@@ -42,20 +47,20 @@ ul li {
     display: inline;
     /* margin-left: 2rem; */
     margin-right: 2rem;
-    color: black;
+    color: white;
     float: right;
 }
 
 ul li a {
     display: flex;
-    color: black;
+    color: wheat;
     text-align: right;
     /* padding: 14px 16px; */
     text-decoration: none;
     /* float: right; */
 }
 li a:hover{
-    color: rgb(56, 40, 229);
+    color: white;
 }
 
 .card {
@@ -65,7 +70,7 @@ li a:hover{
     </style>
 </head>
 
-<body style="background-color: black">
+<body style="background-color: rgb(45, 42, 55)">
     <nav>
         <div class="navbar">
             <div style="padding-top: 15px; padding-left:30px; padding-bottom: 15px;"><a>Book Recommender</a>
@@ -84,13 +89,13 @@ li a:hover{
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="color: white; padding-top: 50px;padding-bottom: 5px; text-align: center;"><u>Top 50 Books</u>
+                <h1 style="color: whitesmoke; padding-top: 50px;padding-bottom: 5px; text-align: center;"><u>Top 50 Books</u>
                 </h1>
             </div>
             {% for i in range(book_name|length) %}
             <div class="col-md-2" style="display: inline-block; width:25%;height: 40%; margin-left: 7%;">
                 <div class="card">
-                    <div class="card-body" style="background: black;">
+                    <div class="card-body" style="background: transparent;">
                         <img class="card-img-top" style="width: 120px; height: 170px; position: center"
                             src="{{image[i]}}">
                         <h2 style="color: white; font-size: 20px">{{book_name[i]}}</h2>
