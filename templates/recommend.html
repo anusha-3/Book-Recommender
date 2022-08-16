@@ -10,6 +10,19 @@
         * {
             left: 0;
         }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        body{
+            animation: fadeInAnimation ease 3s
+            /* animation-iteration-count: 1;
+            animation-fill-mode: forwards; */
+        }
 
         .navbar {
             display: inline;
@@ -56,25 +69,37 @@
             text-decoration: none;
             /* float: right; */
         }
-
+        @keyframes slideInLeft {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
         .card {
             width: 80%;
             height: 100%;
+            animation: 1s ease-out 0s 1 slideInLeft;
         }
 
         .Book {
+            background: transparent;
             width: 50%;
             padding: 12px 20px;
             margin: 8px 0;
             display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            border: 1px solid rgb(17, 17, 17);
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            color: azure;
+            box-shadow: 2px 2px 20px 2px rgba(1, 1, 1, 0.521)
         }
 
         input[type=submit] {
             width: 15%;
-            background-color: #51add2;
+            background-color: rgb(57, 176, 208);
             color: white;
             font-size: large;
             padding: 14px 20px;
@@ -83,6 +108,9 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .card:hover{
+    transform:translateY(-1rem);
+}
     </style>
 </head>
 
@@ -108,24 +136,26 @@
                 <h1 style="color: white; padding-top: 50px;padding-bottom: 5px; text-align: center;"><u>Recommended
                         Books</u></h1>
                 <form style="text-align: center;" action="/recommend_books" method="post">
-                    <input type="text" name="Book_Name" class="Book" placeholder="Enter Book Name"><br>
+                    <input type="text" name="Book_Name" class="Book" placeholder="Enter Book Name" required><br>
                     <input type="submit">
                 </form>
             </div>
             {% if data %}
+            <h1 style="color: white; margin-left: 35%;">Top 5 Recommended Books👇🏻</h1>
+            <br><br>
             {% for i in data %}
             <div class="col-md-2" style="display: inline-block; width:25%;height: 40%; margin-left: 7%;">
-                <div class="card">
+                <div class="card" style="box-shadow: 2px 2px 20px 2px rgba(1, 1, 1, 0.521);border-radius: 10%;margin: 10px;">
                     <div class="card-body" style="background: transparent;">
-                        <img class="card-img-top" style="width: 120px; height: 170px; position: center"
+                        <img class="card-img-top" style="width: 120px; height: 170px; position: center; text-align: center;margin-left: 80px;margin-top: 15px;"
                             src="{{i[2]}}">
-                        <h2 style="color: white; font-size: 20px">{{i[0]}}</h2>
-                        <h4 style="color: white; font-size: 10px">{{i[1]}}</h4>
+                        <h2 style="color: white; font-size: 20px;text-align: center;">{{i[0]}}</h2>
+                        <h4 style="color: white; font-size: 15px; text-align: center;">{{i[1]}}</h4>
+                        <br><br>
                     </div>
                 </div>
             </div>
             {% endfor %}
-
             {% endif %}
 
 

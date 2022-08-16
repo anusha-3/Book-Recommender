@@ -60,12 +60,23 @@ ul li a {
     /* float: right; */
 }
 li a:hover{
-    color: white;
+    transform:translateY(-5px);
 }
-
+@keyframes slideInLeft {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
 .card {
     width: 80%;
     height: 100%;
+    animation: 1s ease-out 0s 1 slideInLeft;
+}
+.card:hover{
+    transform:translateY(-1rem);
 }
     </style>
 </head>
@@ -94,14 +105,15 @@ li a:hover{
             </div>
             {% for i in range(book_name|length) %}
             <div class="col-md-2" style="display: inline-block; width:25%;height: 40%; margin-left: 7%;">
-                <div class="card">
+                <div class="card" style="box-shadow: 2px 2px 20px 2px rgba(1, 1, 1, 0.521);border-radius: 10%;margin: 10px;">
                     <div class="card-body" style="background: transparent;">
-                        <img class="card-img-top" style="width: 120px; height: 170px; position: center"
+                        <img class="card-img-top" style="width: 120px; height: 170px; position: center; text-align: center;margin-left: 80px;margin-top: 15px;"
                             src="{{image[i]}}">
-                        <h2 style="color: white; font-size: 20px">{{book_name[i]}}</h2>
-                        <h4 style="color: white; font-size: 10px">{{author[i]}}</h4>
-                        <h4 style="color: white; font-size: 10px">votes - {{votes[i]}}</h4>
-                        <h4 style="color: white; font-size: 10px">rating - {{rating[i]}}</h4>
+                        <h2 style="color: white; font-size: 20px; text-align: center">{{book_name[i]}}</h2>
+                        <h4 style="color: white; font-size: 10px; text-align: center">{{author[i]}}</h4>
+                        <h4 style="color: white; font-size: 10px; text-align: center">votes - {{votes[i]}}</h4>
+                        <h4 style="color: white; font-size: 10px; text-align: center">rating - {{rating[i]}}</h4>
+                        <br><br>
                     </div>
                 </div>
             </div>
